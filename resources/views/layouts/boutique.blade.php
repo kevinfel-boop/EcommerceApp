@@ -15,7 +15,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <x-navigation />
+        <main id="content">
+            <x-navigation />
+            <div>
+                @yield('content')
+            </div>
+        </main>
         <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
           <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>   
     </body>
