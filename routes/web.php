@@ -26,8 +26,9 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/cart/update/{cartItem}', [CartController::class, 'update'])->name('cart.update'); //mettre a jour la quantite d'un produit dans le panier
     Route::delete('/cart/remove/{cartItem}', [CartController::class, 'remove'])->name('cart.remove'); //supprimer un produit du panier
     Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear'); //vider le panier
-    require __DIR__ . '/auth.php';
+
 });
+
 
 /*
 use App\Http\Controllers\ProfileController;
@@ -37,13 +38,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 */
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+require __DIR__ . '/auth.php';
