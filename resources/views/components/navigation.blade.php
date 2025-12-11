@@ -1,111 +1,106 @@
+<nav class="bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+          <div class="flex">
+              <!-- Logo -->
+              <div class="flex-shrink-0 flex items-center">
+                  <a href="{{ route('home') }}">
+                      <img class="h-8 w-auto" src="{{ asset('img/logo.png') }}" alt="Logo">
+                  </a>
+              </div>
 
-<div class="bg-white">
-    <!-- affivchage en mode Mobile menu -->
-    <el-dialog>
-      <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-        <el-dialog-backdrop class="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-closed:opacity-0"></el-dialog-backdrop>
-        <div tabindex="0" class="fixed inset-0 flex focus:outline-none">
-          <el-dialog-panel class="relative flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-closed:-translate-x-full">
-            <div class="flex px-4 pt-5 pb-2">
-              <button type="button" command="close" commandfor="mobile-menu" class="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
-                <span class="absolute -inset-0.5"></span>
-                <span class="sr-only">Close menu</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-            </div>
-  
-     
-  
-            <div class="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div class="flow-root">
-                <a href="{{route('home')}}" class="-m-2 block p-2 font-medium text-gray-900">Acceuil</a>
+              <!-- Navigation Links -->
+              <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  <a href="{{ route('home') }}" 
+                     class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      Accueil
+                  </a>
+                  <a href="{{ route('products.index') }}" 
+                     class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      Produit
+                  </a>
+                  <a href="{{ route('categories.index') }}" 
+                     class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      Catégories
+                  </a>
+                  <a href="{{ route('about') }}" 
+                     class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      À propos
+                  </a>
               </div>
-              <div class="flow-root">
-                <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Produit</a>
-              </div>
-              <div class="flow-root">
-                <a href="#" class="-m-2 block p-2 font-medium text-gray-900">Catégorie</a>
-              </div>
-            </div>
-  
-            <div class="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div class="flow-root">
-                <a href="{{route('login')}}" class="-m-2 block p-2 font-medium text-gray-900">Connexion</a>
-              </div>
-              <div class="flow-root">
-                <a href="{{route('profile.edit')}}" class="-m-2 block p-2 font-medium text-gray-900">Mon compte</a>
-              </div>
-            </div>
-          </el-dialog-panel>
-        </div>
-      </dialog>
-    </el-dialog>
-  
-    <header class="relative bg-white">
-      
-  
-      <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="border-b border-gray-200">
-          <div class="flex h-16 items-center">
-            {{-- début bouton menu format mobile --}}
-            <button type="button" command="show-modal" commandfor="mobile-menu" class="relative rounded-md bg-white p-2 text-gray-400 lg:hidden">
-              <span class="absolute -inset-0.5"></span>
-              <span class="sr-only">Open menu</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            {{-- fin bouton menu format mobile --}}
-  
-            <!-- debut  Logo -->
-            <div class="ml-4 flex lg:ml-0">
-              <a href="{{route('home')}}">
-                <span class="sr-only">Master K</span>
-                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="" class="h-8 w-auto" />
-              </a>
-            </div>
-             <!-- fin Logo -->
-  
-           
-            <div class="ml-auto flex items-center">
-              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Acceuil</a>
-                <a href="{{route('home')}}"></a>
-                <span aria-hidden="true" class="h-6 w-px bg-gray-200"></span>
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Produits</a>
-                <span aria-hidden="true" class="h-6 w-px bg-gray-200"></span>
-                <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-800">Catégorie</a>
-                
-                <span aria-hidden="true" class="h-6 w-px bg-gray-200"></span>
-                @guest
-                <a href="{{route('login')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Connexion</a>
-                @endguest
-                
-                @auth
-                <a href="{{route('profile.edit')}}" class="text-sm font-medium text-gray-700 hover:text-gray-800">Mon compte</a>
-                @endauth
-              </div>
-  
-              
-  
-              
-  
-              <!-- Cart -->
-              <div class="ml-4 flow-root lg:ml-6">
-                <a href="#" class="group -m-2 flex items-center p-2">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 shrink-0 text-gray-400 group-hover:text-gray-500">
-                    <path d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <span class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                  <span class="sr-only">items in cart, view bag</span>
-                </a>
-              </div>
-            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+
+          <!-- Right side of navbar -->
+          <div class="hidden sm:ml-6 sm:flex sm:items-center">
+              <!-- Cart -->
+              <a href="{{ route('cart.index') }}" class="p-2 rounded-full text-gray-400 hover:text-gray-500">
+                  <span class="sr-only">Panier</span>
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  @auth
+                      @if($cartItemCount ?? 0 > 0)
+                          <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                              {{ $cartItemCount }}
+                          </span>
+                      @endif
+                  @endauth
+              </a>
+
+              <!-- User menu -->
+              @auth
+                  <div class="ml-3 relative">
+                      <div>
+                          <button type="button" 
+                                  class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" 
+                                  id="user-menu-button">
+                              <span class="sr-only">Open user menu</span>
+                              <img class="h-8 w-8 rounded-full" 
+                                   src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&color=7F9CF5&background=EBF4FF" 
+                                   alt="">
+                          </button>
+                      </div>
+                      <!-- Dropdown menu -->
+                      <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" 
+                           role="menu" id="user-menu">
+                          <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                              Mon profil
+                          </a>
+                          <a href="{{ route('orders.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                              Mes commandes
+                          </a>
+                          <form method="POST" action="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
+                              @csrf
+                              <button type="submit">Déconnexion</button>
+                          </form>
+                      </div>
+                  </div>
+              @else
+                  <a href="{{ route('login') }}" class="text-gray-500 hover:text-gray-700 px-3 py-2 text-sm font-medium">
+                      Connexion
+                  </a>
+                  <a href="{{ route('register') }}" class="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                      Inscription
+                  </a>
+              @endauth
+          </div>
+      </div>
   </div>
-  
+</nav>
+
+<script>
+  // Gestion du menu utilisateur
+  document.getElementById('user-menu-button').addEventListener('click', function() {
+      const menu = document.getElementById('user-menu');
+      menu.classList.toggle('hidden');
+  });
+
+  // Fermer le menu en cliquant à l'extérieur
+  window.addEventListener('click', function(e) {
+      const menu = document.getElementById('user-menu');
+      const button = document.getElementById('user-menu-button');
+      if (!button.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add('hidden');
+      }
+  });
+</script>

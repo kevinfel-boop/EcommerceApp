@@ -150,4 +150,17 @@ class User extends Authenticatable
 
         return implode(', ', $parts);
     }
+
+
+
+    /**
+     * Récupère ou crée le panier de l'utilisateur
+     */
+    public function getOrCreateCart()
+    {
+        if (!$this->cart) {
+            $this->cart()->create();
+        }
+        return $this->cart;
+    }
 }
