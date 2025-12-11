@@ -71,7 +71,7 @@ class Product extends Model
             if (empty($product->slug)) {
                 $product->slug = Str::slug($product->name);
             }
-            
+
             // Génère un SKU automatique si vide
             if (empty($product->sku)) {
                 $product->sku = 'PRD-' . strtoupper(Str::random(8));
@@ -241,7 +241,7 @@ class Product extends Model
     {
         if (!$this->image) {
             // Image par défaut si pas d'image
-            return asset('images/no-image.png');
+            return asset('image/default.webp');
         }
 
         return asset('storage/' . $this->image);
